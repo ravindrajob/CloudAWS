@@ -1,0 +1,49 @@
+################################################################
+# Titre: deploy-lz.yml
+# Description : Pipeline d'orchestration CI/CD pour la LZ AWS (WIF/OIDC)
+# Auteur: Ravindra JOB
+# Update: 22/05/2026 [v1.0 | RJ]
+################################################################
+
+name: "Deploy Landing Zone AWS"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'landingZone/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # Requis pour OIDC/WIF
+
+jobs:
+  deploy-governance:
+    name: "Layer 00: Governance"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Authenticate to AWS via OIDC"
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: eu-west-3
+      - name: "Terraform Apply"
+        run: |
+          cd landingZone/Governance
+          terraform init
+          terraform apply -auto-approve
+
+  deploy-connectivity:
+    name: "Layer 01: Connectivity"
+    needs: deploy-governance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Terraform Apply"
+        run: |
+          cd landingZone/Connectivity
+          terraform init
+          terraform apply -auto-approve
