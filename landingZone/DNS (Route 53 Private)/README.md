@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - DNS (Route 53 Private)
-### Version: v1.2
+# DNS (Route 53 Private)
+> **Architecture :** Gestion de la résolution de noms de domaine privée au sein du cloud AWS et extension de cette résolution vers les environnements hybrides via des resolvers Route 53. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Gestion de la résolution de noms de domaine privée au sein du cloud AWS et extension de cette résolution vers les environnements hybrides via des resolvers Route 53.
 
 ## Hardening & Gouvernance
 - **Isolation des Zones** : Utilisation exclusive de Private Hosted Zones associées uniquement aux VPC autorisés.

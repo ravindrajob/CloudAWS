@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - Governance (SCPs & WIF)
-### Version: v1.2
+# Governance (SCPs & WIF)
+> **Architecture :** Mise en place des garde-fous globaux à l'échelle de l'organisation AWS via les Service Control Policies (SCPs) et gestion de l'identité fédérée avec Workload Identity Federation (WIF). | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Mise en place des garde-fous globaux à l'échelle de l'organisation AWS via les Service Control Policies (SCPs) et gestion de l'identité fédérée avec Workload Identity Federation (WIF).
 
 ## Hardening & Gouvernance
 - **SCPs de Protection** : Interdiction de quitter l'organisation, blocage de la suppression des logs (CloudWatch/CloudTrail) et restriction des régions AWS autorisées.

@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - AISecurity (A2A Gateway)
-### Version: v1.2
+# AISecurity (A2A Gateway)
+> **Architecture :** Passerelle de sécurité dédiée aux communications Agent-to-Agent (A2A) et à la sécurisation des échanges entre modèles d'IA, garantissant l'intégrité et la confidentialité des prompts et réponses. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Passerelle de sécurité dédiée aux communications Agent-to-Agent (A2A) et à la sécurisation des échanges entre modèles d'IA, garantissant l'intégrité et la confidentialité des prompts et réponses.
 
 ## Hardening & Gouvernance
 - **Proxy d'Inspection** : Interception et filtrage des requêtes vers les services d'IA pour détecter les fuites de données sensibles (DLP).

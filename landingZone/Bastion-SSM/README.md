@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - Bastion-SSM
-### Version: v1.2
+# Bastion-SSM
+> **Architecture :** Fourniture d'un accès sécurisé et administré aux instances EC2 sans nécessiter d'exposition publique ou de serveurs bastion traditionnels, via AWS Systems Manager Session Manager. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Fourniture d'un accès sécurisé et administré aux instances EC2 sans nécessiter d'exposition publique ou de serveurs bastion traditionnels, via AWS Systems Manager Session Manager.
 
 ## Hardening & Gouvernance
 - **Zéro IP Publique** : Accès aux instances via PrivateLink pour SSM, éliminant le besoin d'IGW/NAT Gateway pour l'administration.

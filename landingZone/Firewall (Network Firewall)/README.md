@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - Firewall (Network Firewall)
-### Version: v1.2
+# Firewall (Network Firewall)
+> **Architecture :** Déploiement d'un service de firewall managé pour assurer l'inspection profonde des paquets (DPI), le filtrage d'états et la prévention d'intrusions (IPS) à l'échelle du VPC. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Déploiement d'un service de firewall managé pour assurer l'inspection profonde des paquets (DPI), le filtrage d'états et la prévention d'intrusions (IPS) à l'échelle du VPC.
 
 ## Hardening & Gouvernance
 - **Inspection Est-Ouest & Nord-Sud** : Configuration en mode "Deployment Model: Centralized" via Transit Gateway pour inspecter tout le trafic inter-VPC et Internet.

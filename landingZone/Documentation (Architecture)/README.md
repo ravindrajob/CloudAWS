@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - Documentation (Architecture)
-### Version: v1.2
+# Documentation (Architecture)
+> **Architecture :** Référentiel centralisé de la documentation d'architecture, des diagrammes de flux et des décisions de conception (ADR) pour l'ensemble de la landing zone AWS. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Référentiel centralisé de la documentation d'architecture, des diagrammes de flux et des décisions de conception (ADR) pour l'ensemble de la landing zone AWS.
 
 ## Hardening & Gouvernance
 - **Versioning** : Stockage de la documentation en tant que code (Markdown/PlantUML) avec historique complet via Git.

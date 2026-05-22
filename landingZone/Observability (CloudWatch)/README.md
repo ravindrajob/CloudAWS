@@ -1,10 +1,7 @@
-################################################################
-# Titre: Observability (CloudWatch) - README
-# Description : Centralisation des flux de données AWS vers le NOC déporté
-# Auteur: Ravindra JOB
-# Source: https://github.com/ravindrajob/
-# Update: 22/05/2026 [v1.2 | RJ]
-################################################################
+# Observability (CloudWatch)
+> **Architecture :** Centralisation des flux de données AWS vers le NOC déporté | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
+
 
 # Observability (AWS CloudWatch)
 

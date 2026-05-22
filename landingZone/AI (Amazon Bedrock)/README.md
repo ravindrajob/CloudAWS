@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - AI (Amazon Bedrock)
-### Version: v1.2
+# AI (Amazon Bedrock)
+> **Architecture :** Déploiement et orchestration de services d'IA générative via Amazon Bedrock, fournissant une interface unifiée pour l'accès aux Foundation Models (FM) tout en garantissant l'isolation des données. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Déploiement et orchestration de services d'IA générative via Amazon Bedrock, fournissant une interface unifiée pour l'accès aux Foundation Models (FM) tout en garantissant l'isolation des données.
 
 ## Hardening & Gouvernance
 - **Isolation des données** : Désactivation explicite de l'entraînement des modèles avec les données client (Service Control Policies).

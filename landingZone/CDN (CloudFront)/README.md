@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - CDN (CloudFront)
-### Version: v1.2
+# CDN (CloudFront)
+> **Architecture :** Optimisation de la livraison des contenus statiques et dynamiques via le réseau mondial de points de présence (Edge Locations) d'AWS, tout en renforçant la sécurité périmétrique. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Optimisation de la livraison des contenus statiques et dynamiques via le réseau mondial de points de présence (Edge Locations) d'AWS, tout en renforçant la sécurité périmétrique.
 
 ## Hardening & Gouvernance
 - **Protection Périmétrique** : Intégration native avec AWS WAF (Web Application Firewall) et AWS Shield pour la protection contre les attaques L7 et DDoS.

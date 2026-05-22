@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - Workloads (VPC Spokes)
-### Version: v1.2
+# Workloads (VPC Spokes)
+> **Architecture :** Provisionnement standardisé de VPC "Spoke" destinés à héberger les applications, isolés par défaut et connectés de manière contrôlée au Hub central. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Provisionnement standardisé de VPC "Spoke" destinés à héberger les applications, isolés par défaut et connectés de manière contrôlée au Hub central.
 
 ## Hardening & Gouvernance
 - **Segmentation Stricte** : Découpage en sous-réseaux (Web, App, DB) sans aucune passerelle Internet (IGW) locale.

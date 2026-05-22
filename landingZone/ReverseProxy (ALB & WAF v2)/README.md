@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - ReverseProxy (ALB & WAF v2)
-### Version: v1.2
+# ReverseProxy (ALB & WAF v2)
+> **Architecture :** Gestion de l'entrée du trafic HTTP/HTTPS via l'Application Load Balancer (ALB), couplée à une protection applicative robuste via AWS WAF v2. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Gestion de l'entrée du trafic HTTP/HTTPS via l'Application Load Balancer (ALB), couplée à une protection applicative robuste via AWS WAF v2.
 
 ## Hardening & Gouvernance
 - **Filtrage Applicatif** : Mise en œuvre de Web ACLs WAF v2 avec des règles gérées par AWS (Core ruleset, Known bad inputs, SQLi/XSS).

@@ -1,10 +1,7 @@
-################################################################
-# Titre: CloudAWS - README
-# Description : Lab de simulation Amazon Web Services Hardened
-# Auteur: Ravindra JOB
-# Source: https://github.com/ravindrajob/
-# Update: 22/05/2026 [v2.2 | RJ]
-################################################################
+# CloudAWS
+> **Architecture :** Lab de simulation Amazon Web Services Hardened | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
+
 
 # Amazon Web Services : Landing Zone Hardened
 

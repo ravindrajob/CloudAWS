@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - ChaosEngineering (Fault Injection)
-### Version: v1.2
+# ChaosEngineering (Fault Injection)
+> **Architecture :** Mise en œuvre de tests de résilience automatisés via AWS Fault Injection Service (FIS) pour valider la robustesse de l'infrastructure face aux défaillances réelles. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Mise en œuvre de tests de résilience automatisés via AWS Fault Injection Service (FIS) pour valider la robustesse de l'infrastructure face aux défaillances réelles.
 
 ## Hardening & Gouvernance
 - **Expériences Contrôlées** : Définition de templates d'expériences limités à des environnements de staging ou de pre-prod.

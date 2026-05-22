@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - FinOps (Cost Explorer)
-### Version: v1.2
+# FinOps (Cost Explorer)
+> **Architecture :** Mise en œuvre des mécanismes de visibilité, de contrôle et d'optimisation des coûts cloud via AWS Cost Explorer et les budgets AWS. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Mise en œuvre des mécanismes de visibilité, de contrôle et d'optimisation des coûts cloud via AWS Cost Explorer et les budgets AWS.
 
 ## Hardening & Gouvernance
 - **Stratégie de Tagging** : Application de polices de tagging strictes via SCPs pour garantir l'imputabilité des coûts par projet/environnement.

@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - Kubernetes (EKS Private)
-### Version: v1.2
+# Kubernetes (EKS Private)
+> **Architecture :** Déploiement de clusters Kubernetes managés (Amazon EKS) entièrement privés, garantissant que le plan de contrôle et les nœuds ne sont pas exposés à l'Internet public. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Déploiement de clusters Kubernetes managés (Amazon EKS) entièrement privés, garantissant que le plan de contrôle et les nœuds ne sont pas exposés à l'Internet public.
 
 ## Hardening & Gouvernance
 - **Private Endpoint** : Activation exclusive de l'endpoint privé pour l'API Kubernetes, accessible uniquement via VPN ou Bastion.

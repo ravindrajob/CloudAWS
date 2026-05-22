@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - Connectivity (Transit Gateway)
-### Version: v1.2
+# Connectivity (Transit Gateway)
+> **Architecture :** Hub de communication centralisé agissant comme un routeur cloud pour interconnecter les VPC, les connexions Direct Connect et les VPN, simplifiant ainsi la topologie réseau. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Hub de communication centralisé agissant comme un routeur cloud pour interconnecter les VPC, les connexions Direct Connect et les VPN, simplifiant ainsi la topologie réseau.
 
 ## Hardening & Gouvernance
 - **Segmentation par Table de Routage** : Utilisation de TGW Route Tables distinctes pour isoler les environnements (Prod, Non-Prod, Shared Services).

@@ -1,9 +1,7 @@
-# Ravindra JOB - Cloud Architect
-## Composant Landing Zone - Connectivity (Direct Connect)
-### Version: v1.2
+# Connectivity (Direct Connect)
+> **Architecture :** Établissement d'une connexion réseau dédiée et hautement disponible entre le centre de données on-premises et l'infrastructure AWS, garantissant une latence prédictible et une sécurité accrue. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
-## Rôle du composant
-Établissement d'une connexion réseau dédiée et hautement disponible entre le centre de données on-premises et l'infrastructure AWS, garantissant une latence prédictible et une sécurité accrue.
 
 ## Hardening & Gouvernance
 - **Chiffrement** : Mise en œuvre systématique de MACsec (si disponible) ou de tunnels IPsec (VPN over Direct Connect) pour le chiffrement des données en transit.
