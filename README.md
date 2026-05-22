@@ -1,34 +1,43 @@
 ################################################################
 # Titre: CloudAWS - README
-# Description : Lab de simulation AWS Hardened (CAF & CNCF)
+# Description : Lab de simulation Amazon Web Services Hardened
 # Auteur: Ravindra JOB
 # Source: https://github.com/ravindrajob/
-# Update: 22/05/2026 [v1.0 | RJ] Initial creation
+# Update: 22/05/2026 [v2.2 | RJ]
 ################################################################
 
-# CloudAWS - Lab de Simulation Amazon Web Services
+# Amazon Web Services : Landing Zone Hardened
 
-💡 **Philosophie & Partage :** 
-Ce dépôt constitue un laboratoire de démonstration pour les architectures **Amazon Web Services (AWS)**. Il reflète une approche standardisée et sécurisée de l'infrastructure "Cloud Native". 
-
-Les configurations Terraform ici présentes sont des simulations conçues pour partager des bonnes pratiques sur le domaine **ravindra-job.com**. (OPSEC oblige, l'infrastructure réelle de production est totalement isolée).
-
-## 🏗️ Architecture du Lab (Landing Zone CAF)
-
-L'infrastructure est modulaire et suit une logique de séparation des responsabilités (**1 dossier = 1 composant**) :
-
-1.  **`landingZone/Governance/`** : Verrouillage au niveau AWS Organizations via **SCPs** (Service Control Policies) et configuration de **IAM Identity Center**.
-2.  **`landingZone/Connectivity/`** : Hub de transit moderne utilisant **AWS Transit Gateway** et **AWS Network Firewall**.
-3.  **`landingZone/VPC-Spokes/`** : Réseaux applicatifs isolés avec accès PaaS sécurisé via **AWS PrivateLink** (Interface VPC Endpoints).
-4.  **`landingZone/ALB-WAF/`** : Exposition HTTPS sécurisée via Application Load Balancer et **AWS WAF v2**.
-5.  **`landingZone/EKS/`** : Déploiement d'un cluster Amazon EKS durci (Private Cluster) conforme aux standards CNCF.
-6.  **`landingZone/AI-Agent-Security/`** : Architecture de sécurisation pour **Amazon Bedrock**, implémentant le concept **Action-to-Action (A2A)**.
-7.  **`landingZone/Documentation/`** : Documentation industrielle exhaustive (Governance, Networking, Security).
-
-## 🔒 Sécurité par Design
-- **Zéro IP Publique** : Utilisation systématique de **Session Manager (SSM)** pour l'administration.
-- **Identité Zéro Trust** : Bannissement des clés d'accès IAM au profit de **OIDC/Workload Identity Federation**.
-- **Filtrage L7** : Inspection profonde via AWS Network Firewall.
+Ce dépôt centralise les briques d'infrastructure (IaC) nécessaires au déploiement d'une **Landing Zone** sécurisée sur AWS. L'architecture respecte les standards du **GCP/Azure CAF** (adaptés) et les principes de la **CNCF** pour garantir une posture Zéro Trust.
 
 ---
-*Dépôt maintenu selon une approche institutionnelle et souveraine.*
+
+### 🧱 Architecture du Lab
+
+L'infrastructure est découpée en services managés modulaires, facilitant l'évolution et l'audit.
+
+| Module | Fonctionnalité | Hardening Spécifique |
+| :--- | :--- | :--- |
+| **`Governance`** | SCPs & IAM | Service Control Policies (No Public IP), Region Lock, WIF/OIDC. |
+| **`Connectivity`** | Transit Hub | AWS Transit Gateway (TGW), Hub-and-Spoke. |
+| **`Firewall`** | Perimeter Security | AWS Network Firewall, filtrage FQDN, inspection IPS. |
+| **`Bastion`** | Zéro Trust Admin | Systems Manager (SSM) Session Manager, zéro port entrant. |
+| **`Kubernetes`** | Orchestration | Amazon EKS Private Cluster, Control Plane Logging. |
+| **`ReverseProxy`** | Web Exposition | Application Load Balancer (ALB), AWS WAF v2. |
+| **`CDN`** | Edge Security | CloudFront, AWS Shield, intégration WAF. |
+| **`AI-Security`** | AI Agent Proxy | Gateway A2A pour la sécurisation des flux Amazon Bedrock. |
+
+---
+
+### 🛡️ Principes de Sécurité (Security by Design)
+
+- **Identité Fédérée :** Suppression des IAM Users avec Access Keys au profit du Workload Identity Federation pour la CI/CD.
+- **Accès Privé :** Utilisation systématique d'AWS PrivateLink (Interface VPC Endpoints) pour la consommation des services AWS sans Internet.
+- **Micro-segmentation :** Isolation stricte via Security Groups et ACLs réseau centralisées dans le Transit Gateway.
+
+### ⚙️ Déploiement & Orchestration
+
+L'orchestration est pilotée par un pipeline GitOps situé dans `.github/workflows/`. Le déploiement suit un ordonnancement par briques (Foundations, Network, Workloads) pour une traçabilité totale.
+
+---
+*Note : Ce dépôt est un environnement de simulation (Lab). Les configurations sont isolées et utilisent exclusivement le domaine `ravindra-job.com`.*
