@@ -26,4 +26,4 @@ Toute sortie vers Internet est inspectée par l'**AWS Network Firewall** situé 
 - **Inspection IPS** : Détection et blocage des signatures de malwares connus.
 
 ---
-*Architecture réseau industrielle validée par Ravindra JOB.*
+Adoption industrialisée du CAF avec surcouche de sécurité et intégration des pratiques CNCF.

@@ -20,4 +20,4 @@
 - **Redondance :** Configuration recommandée en mode "Haute Disponibilité" avec deux circuits distincts arrivant sur des routeurs AWS différents.
 
 ---
-*Architecture hybride validée par Ravindra JOB.*
+Adoption industrialisée du CAF avec surcouche de sécurité et intégration des pratiques CNCF.

@@ -26,4 +26,4 @@ Nous bannissons l'usage des **IAM Users** avec clés statiques (Access Key ID / 
 - **IAM Identity Center (SSO)** : Pour l'accès humain, avec authentification multi-facteurs (MFA) obligatoire.
 
 ---
-*Gouvernance méticuleuse conçue par Ravindra JOB.*
+Adoption industrialisée du CAF avec surcouche de sécurité et intégration des pratiques CNCF.

@@ -22,4 +22,4 @@ Contrairement à une gestion par compte isolé, l'utilisation des **Service Cont
     - Interdiction de désactiver les logs d'audit CloudTrail.
 
 ---
-*Standard industriel AWS validé par Ravindra JOB.*
+Adoption industrialisée du CAF avec surcouche de sécurité et intégration des pratiques CNCF.
