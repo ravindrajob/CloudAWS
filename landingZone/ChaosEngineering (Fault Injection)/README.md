@@ -1,22 +1,22 @@
-# ChaosEngineering (Fault Injection)
-> **Architecture :** Mise en œuvre de tests de résilience automatisés via AWS Fault Injection Service (FIS) pour valider la robustesse de l'infrastructure face aux défaillances réelles. | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+# ChaosEngineering (Fault Injection Simulator)
+> **Architecture :** Orchestration de fautes via AWS FIS pour tester la robustesse des infrastructures critiques | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
 ---
 
+## Rôle du composant
+Le service **AWS FIS** permet de créer des environnements de "Chaos" pour valider les hypothèses de résilience. Ce module simule l'arrêt de 50% des nœuds d'un cluster EKS pour valider les mécanismes d'Auto-Scaling et de Self-Healing.
 
 ## Hardening & Gouvernance
-- **Expériences Contrôlées** : Définition de templates d'expériences limités à des environnements de staging ou de pre-prod.
-- **Stop Conditions** : Configuration d'alarmes CloudWatch agissant comme des "coupe-circuits" pour arrêter immédiatement les tests en cas d'impact imprévu.
-- **Isolation des Expériences** : Utilisation de rôles IAM dédiés restreignant les actions de FIS à des ressources taguées spécifiquement.
-- **Audit de Résilience** : Analyse post-mortem automatique après chaque injection de faute pour améliorer les plans de reprise d'activité.
-- **Standards** : Intégration des principes du "Chaos Engineering" et alignement avec le pilier "Reliability" du CAF.
+- **Reliability Audit (AWS CAF) :** Mesure du MTTR (Mean Time To Recovery) lors d'un incident matériel simulé.
+- **TGW Resilience :** S'assure que le routage via Transit Gateway bascule proprement en cas de perte de liens inter-AZ.
+- **Zéro Downtime Objective :** Validation que les flux inspectés par AWS Network Firewall ne sont pas interrompus pendant l'expérience.
 
 ## Schéma Mermaid
 ```mermaid
 graph LR
-    FIS[AWS FIS] --> |Inject Fault| Res[Resource EC2/RDS/EKS]
-    Res --> |Monitor| CW[CloudWatch Alarms]
-    CW --> |Trigger Stop| FIS
-    FIS --> |Log Results| S3[Audit/Results]
+    EKS[Amazon EKS] --> Nodes[Node Pool]
+    FIS[AWS FIS] -- "Inject Failure" --> Nodes
+    CloudWatch[CloudWatch Metrics] -- "Alarm" --> NOC[NOC Central]
+    ASG[Auto Scaling Group] -- "Launch New Nodes" --> EKS
 ```
 
 ## Conclusion
