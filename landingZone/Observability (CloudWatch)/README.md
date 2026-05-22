@@ -1,42 +1,34 @@
-# Observability (CloudWatch)
-> **Architecture :** Centralisation des flux de données AWS vers le NOC déporté | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
----
+# Observability (CloudWatch) > **Architecture :** Streaming de métriques et audit de sécurité Bedrock | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
 
+## Rôle du composant
+Le déport de l'observabilité est une pratique fondamentale du **SRE (Site Reliability Engineering)** visant à garantir que les signaux critiques (Golden Signals) sont collectés et stockés en dehors du périmètre de production immédiat. Cette approche permet d'éviter les **SPOF (Single Point of Failure)** : en cas de compromission ou de défaillance majeure de la Landing Zone, les traces d'audit et les métriques de performance restent accessibles et intègres dans le socle de sécurité centralisé.
 
-# Observability (AWS CloudWatch)
+## Hardening & Gouvernance
+La configuration applique des contrôles de sécurité rigoureux conformes aux standards industriels :
+- **Audit DNS (Route 53 Resolver Logs) :** Journalisation des requêtes DNS pour la détection précoce d'exfiltration de données via des tunnels DNS.
+- **Audit IA A2A (Amazon Bedrock) :** Utilisation des Guardrails et des logs d'invocation pour garantir que les agents IA respectent le cadre de sécurité **Action-to-Action**.
+- **VPC Flow Logs & TGW Flow Logs :** Analyse granulaire du trafic intra et inter-VPC pour assurer la visibilité totale sur les flux réseau.
+- **CloudWatch Metric Streams :** Exportation en temps-réel des métriques vers une stack d'observabilité externe via Kinesis Data Firehose (Diagnostic Settings equivalent).
 
-💡 **Rôle du composant :** 
-Collecter, retenir et diffuser les signaux d'observabilité (logs, métriques) du datacenter AWS, en mettant l'accent sur le filtrage IA de Bedrock.
-
-## Pourquoi ce choix technique ?
-**CloudWatch** est utilisé comme point d'entrée natif pour toutes les briques AWS. Nous utilisons **Kinesis Data Firehose** pour streamer ces métriques en temps-réel vers notre stack d'observabilité déportée, garantissant une vision unifiée multi-cloud.
-
-## Hardening & Gouvernance (CAF & CNCF)
-- **Bedrock Guardrails Audit :** Capture exhaustive des logs de blocage d'Amazon Bedrock pour vérifier le respect du protocole **Action-to-Action (A2A)**.
-- **TGW Flow Logs :** Audit de chaque flux transitant par le Transit Gateway. Essentiel pour détecter les tentatives de mouvements latéraux entre Spokes.
-- **Metric Streams (OTel 0.7) :** Utilisation du format standard **OpenTelemetry** pour l'export des données, évitant tout lock-in propriétaire.
-
+## Schéma Mermaid
 ```mermaid
 graph TD
     subgraph "Landing Zone (AWS)"
-        Services[EKS, Bedrock, ALB, DirectConnect]
+        Services[EKS, Bedrock, Route 53]
         CW[CloudWatch Logs/Metrics]
     end
     
-    subgraph "Data Pipeline"
+    subgraph "NOC Central (Observability-Monitoring)"
         Kinesis[Kinesis Firehose]
-    end
-    
-    subgraph "Central NOC (Déporté)"
         OTel[OTel Collector]
-        LGTM[Grafana Stack]
+        Grafana[Grafana Stack]
     end
 
     Services --> CW
     CW --> Kinesis
     Kinesis --> OTel
-    OTel --> LGTM
+    OTel --> Grafana
 ```
 
----
-*Adoption industrialisée du CAF avec surcouche de sécurité et intégration des pratiques CNCF.*
+## Conclusion
+Adoption industrialisée du CAF avec surcouche de sécurité et intégration des pratiques CNCF.
