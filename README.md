@@ -20,6 +20,7 @@ L'infrastructure est découpée en services managés modulaires, facilitant l'é
 | :--- | :--- | :--- |
 | **`Governance`** | SCPs & IAM | Service Control Policies (No Public IP), Region Lock, WIF/OIDC. |
 | **`Connectivity`** | Transit Hub | AWS Transit Gateway (TGW), Hub-and-Spoke. |
+| **`Connectivity`** | Hybrid Link | Direct Connect (DX), Transit Gateway Association, Link Encryption. |
 | **`Firewall`** | Perimeter Security | AWS Network Firewall, filtrage FQDN, inspection IPS. |
 | **`Bastion`** | Zéro Trust Admin | Systems Manager (SSM) Session Manager, zéro port entrant. |
 | **`Kubernetes`** | Orchestration | Amazon EKS Private Cluster, Control Plane Logging. |
