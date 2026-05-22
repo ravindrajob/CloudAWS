@@ -1,25 +1,31 @@
-################################################################
-# Titre: Governance (SCPs & WIF) - README
-# Description : Pourquoi et comment nous verrouillons AWS Organizations
-# Auteur: Ravindra JOB
-# Source: https://github.com/ravindrajob/
-# Update: 22/05/2026 [v1.1 | RJ]
-################################################################
+# Ravindra JOB - Cloud Architect
+## Composant Landing Zone - Governance (SCPs & WIF)
+### Version: v1.2
 
-# Gouvernance (AWS Organizations & WIF)
+## Rôle du composant
+Mise en place des garde-fous globaux à l'échelle de l'organisation AWS via les Service Control Policies (SCPs) et gestion de l'identité fédérée avec Workload Identity Federation (WIF).
 
-💡 **Rôle du composant :** 
-Ce module constitue la racine de confiance de la Landing Zone. Il permet d'imposer des règles de conformité immuables sur l'ensemble des comptes de l'organisation.
+## Hardening & Gouvernance
+- **SCPs de Protection** : Interdiction de quitter l'organisation, blocage de la suppression des logs (CloudWatch/CloudTrail) et restriction des régions AWS autorisées.
+- **WIF (OIDC)** : Élimination de l'usage de clés d'accès IAM statiques pour les pipelines CI/CD via la fédération d'identité OIDC (GitHub Actions, GitLab CI).
+- **Principe du Moindre Privilège** : Définition de Permission Boundaries pour limiter les capacités d'escalade de privilèges au sein des comptes.
+- **Garde-fous FinOps** : SCPs empêchant le déploiement de types d'instances coûteuses non approuvées.
+- **Standards** : Application stricte du pilier "Governance" du CAF et des recommandations IAM de la CNCF.
 
-## Pourquoi ce choix technique ?
-Contrairement à une gestion par compte isolé, l'utilisation des **Service Control Policies (SCPs)** permet de garantir qu'aucun administrateur local ne peut déroger aux règles de sécurité de l'entreprise (ex: créer une IP publique).
+## Schéma Mermaid
+```mermaid
+graph TD
+    subgraph Management_Account
+        SCP[Service Control Policies]
+    end
+    subgraph Member_Account
+        WIF[Workload Identity Federation]
+        IAM[IAM Roles / Boundaries]
+    end
+    SCP --> Member_Account
+    ExternalIDP[External IdP / GitHub] --> |OIDC| WIF
+    WIF --> IAM
+```
 
-## Hardening spécifique (vs Standard)
-- **Workload Identity Federation (WIF)** : Nous avons banni les clés d'accès statiques (`IAM Access Keys`). Nous utilisons l'OIDC pour que GitHub Actions s'authentifie via des jetons éphémères. Cela élimine le risque de vol de secrets.
-- **SCPs Paranoïaques** : 
-    - Blocage de la création d'Internet Gateway dans les Spokes.
-    - Blocage du déploiement en dehors des régions souveraines (`eu-west-3`).
-    - Interdiction de désactiver les logs d'audit CloudTrail.
-
----
+## Conclusion
 Adoption industrialisée du CAF avec surcouche de sécurité et intégration des pratiques CNCF.
