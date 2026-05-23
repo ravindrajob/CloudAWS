@@ -25,6 +25,8 @@ L'infrastructure est découpée en services managés modulaires, facilitant l'é
 | **`CDN`** | Edge Security | CloudFront, AWS Shield, intégration WAF. |
 | **`AI-Security`** | AI Agent Proxy | Gateway A2A pour la sécurisation des flux Amazon Bedrock. |
 | **`ChaosEngineering`** | Fault Injection | AWS Fault Injection Simulator (FIS) pour test de HA. |
+| **`FinOps`** | Financial Management | AWS Budgets et Cost & Usage Reports (CUR) exportés vers S3. |
+| **`SecOps`** | SOC Operations | Security Hub et GuardDuty (Threat Detection via ML). |
 
 ---
 
