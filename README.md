@@ -24,6 +24,7 @@ L'infrastructure est découpée en services managés modulaires, facilitant l'é
 | **`ReverseProxy`** | Web Exposition | Application Load Balancer (ALB), AWS WAF v2. |
 | **`CDN`** | Edge Security | CloudFront, AWS Shield, intégration WAF. |
 | **`AI-Security`** | AI Agent Proxy | Gateway A2A pour la sécurisation des flux Amazon Bedrock. |
+| **`ChaosEngineering`** | Fault Injection | AWS Fault Injection Simulator (FIS) pour test de HA. |
 
 ---
 
